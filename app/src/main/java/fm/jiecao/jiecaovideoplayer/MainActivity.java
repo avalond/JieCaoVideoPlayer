@@ -1,6 +1,7 @@
 package fm.jiecao.jiecaovideoplayer;
 
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -13,7 +14,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import fm.jiecao.jcvideoplayer_lib.JCBuriedPointStandard;
-import fm.jiecao.jcvideoplayer_lib.JCFullScreenActivity;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayer;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerSimple;
 import fm.jiecao.jcvideoplayer_lib.JCVideoPlayerStandard;
@@ -87,14 +87,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   public void onClick(View v) {
     switch (v.getId()) {
       case R.id.to_fullscreen_simple:
-        JCFullScreenActivity.startActivity(this,
-          "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4",
-          JCVideoPlayerSimple.class, "嫂子真浪");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+//        JCFullScreenActivity.startActivity(this,
+//          "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4",
+//          JCVideoPlayerSimple.class, "嫂子真浪");
         break;
       case R.id.to_fullscreen_standard:
-        JCFullScreenActivity.startActivity(this,
-          "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4",
-          JCVideoPlayerStandard.class, "嫂子真牛逼");
+        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+//        JCFullScreenActivity.startActivity(this,
+//          "http://2449.vod.myqcloud.com/2449_22ca37a6ea9011e5acaaf51d105342e3.f20.mp4",
+//          JCVideoPlayerStandard.class, "嫂子真牛逼");
         break;
       case R.id.to_list_activity:
         startActivity(new Intent(MainActivity.this, ListActivity.class));
